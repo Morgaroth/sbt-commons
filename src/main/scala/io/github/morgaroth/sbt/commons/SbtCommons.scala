@@ -41,6 +41,7 @@ object Libraries {
       val `2.3.12` = ver("2.3.12")
       val `2.3.11` = ver("2.3.11")
       val `2.3.10` = ver("2.3.10")
+      val `2.4.0-RC2` = ver("2.4.0-RC2")
     }
 
     object Stream {
