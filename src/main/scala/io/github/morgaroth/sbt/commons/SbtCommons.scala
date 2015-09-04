@@ -103,6 +103,17 @@ object Libraries {
 
   }
 
+  object uPickle {
+    val ver = library("com.lihaoyi", "upickle", _)
+    val `0.3.6` = ver("0.3.6")
+  }
+
+  object Paradise {
+    def ver(version: String) = "org.scalamacros" % "paradise" % version cross CrossVersion.full
+
+    val `2.1.0-M5` = ver("2.1.0-M5")
+  }
+
 }
 
 object SbtCommons extends AutoPlugin {
