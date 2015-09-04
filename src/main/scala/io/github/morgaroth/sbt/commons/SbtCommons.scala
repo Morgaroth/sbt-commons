@@ -104,7 +104,7 @@ object Libraries {
   }
 
   object uPickle {
-    val ver = library("com.lihaoyi", "upickle", _)
+    val ver: (String) => ModuleID = library("com.lihaoyi", "upickle", _)
     val `0.3.6` = ver("0.3.6")
   }
 
@@ -121,6 +121,7 @@ object SbtCommons extends AutoPlugin {
   object autoImport {
     val Libraries = Releases
     // settings, keys, another which shoud be auto imported to sbt context
+    println("[WARN] hello")
   }
 
 }
