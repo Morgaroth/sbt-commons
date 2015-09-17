@@ -86,7 +86,7 @@ object Libraries {
       val ExNexuRepository = Repositories.ExNexu.releases
 
       val ExNexuhVer: (String) => ModuleID = library("us.bleibinha", "spray-json-annotation", _)
-      val MorgarothVer: (String) => ModuleID = library("io.github.morgaroth", "spray-json-anotation", _)
+      val MorgarothVer: (String) => ModuleID = library("io.github.morgaroth", "spray-json-annotation", _)
       val `0.5` = ExNexuhVer("0.5")
       val `0.4.2` = MorgarothVer("0.4.2")
     }
