@@ -122,7 +122,7 @@ object Libraries {
 
 object SbtCommons extends AutoPlugin {
 
-  def thisVersion = 0 -> 2
+  def thisVersion = 0 -> 5
 
   def needUpgrade(fromInternet: (Int, Int)) = {
     if (thisVersion == fromInternet) {
