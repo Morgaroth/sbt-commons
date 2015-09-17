@@ -5,6 +5,8 @@ import sbt.AutoPlugin
 import RepositoryTypes.{Releases, RepositoryType, Snapshots}
 import sbt._
 
+import scala.util.Success
+
 object Repositories {
 
   object Typesafe {
@@ -61,6 +63,7 @@ object Libraries {
 
     object Can {
       val ver: (String) => ModuleID = sprayLibrary("spray-can", _)
+      val `1.3.3` = ver("1.3.3")
       val `1.3.2` = ver("1.3.2")
       val `1.3.1` = ver("1.3.1")
       val `1.3.0` = ver("1.3.0")
@@ -68,6 +71,7 @@ object Libraries {
 
     object Client {
       val ver: (String) => ModuleID = sprayLibrary("spray-client", _)
+      val `1.3.3` = ver("1.3.3")
       val `1.3.2` = ver("1.3.2")
       val `1.3.1` = ver("1.3.1")
       val `1.3.0` = ver("1.3.0")
@@ -118,11 +122,53 @@ object Libraries {
 
 object SbtCommons extends AutoPlugin {
 
-  object autoImport {
-    val Libraries = Releases
-    // settings, keys, another which shoud be auto imported to sbt context
-    println("[WARN] hello")
+  def thisVersion = 0 -> 2
+
+  def needUpgrade(fromInternet: (Int, Int)) = {
+    if (thisVersion == fromInternet) {
+      false
+    } else if (thisVersion._1 < fromInternet._1) {
+      // major is newer
+      true
+    } else if (thisVersion._1 == fromInternet._1 && thisVersion._2 < fromInternet._2) {
+      // minor is newer
+      true
+    } else {
+      // local is newer than internet?
+      false
+    }
   }
 
+
+  def getInternetVersion = {
+    val b = "https://oss.sonatype.org/content/repositories/releases/io/github/morgaroth/sbt-commons_2.10_0.13/"
+    val r2 = """<td><a href=.*>(\d+\.\d+)/</a></td>""".r
+    val r3 = """<td><a href=.*>(\d+\.\d+\.\d+)/</a></td>""".r
+    val data = Http(b).asString.body
+    val versions = r2.findAllMatchIn(data).toList.map(_.group(1)).map(_.split(".").toList.map(_.toInt))
+    val a1 = versions.groupBy(_.head).mapValues(_.map(_.tail))
+    val max1 = a1.keys.max
+    val a2 = a1(max1).groupBy(_.head).mapValues(_.map(_.tail))
+    val max2 = a2.keys.max
+    val allempty = a2.values.forall(_.isEmpty)
+    val allnonempty = a2.values.forall(_.nonEmpty)
+    if (allempty && !allnonempty) {
+      // wszystkie są formatu x.y
+      Some(max1 -> max2)
+    } else {
+      None
+    }
+  }
+
+  object autoImport {
+    val Libraries = io.github.morgaroth.sbt.commons.Libraries
+    val Repositories = io.github.morgaroth.sbt.commons.Repositories
+    // settings, keys, another which shoud be auto imported to sbt context
+    getInternetVersion.foreach { internet =>
+      if (needUpgrade(internet)) {
+        println(s"[INFO] `sbt commons` plugin from Morgaroth may be upgraded to version $internet (current is $thisVersion).")
+      }
+    }
+  }
 }
 
