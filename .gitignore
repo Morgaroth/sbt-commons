@@ -30,6 +30,9 @@
 *.ipr
 *.iws
 
+/test-project/target
+/test-project/project/project
+/test-project/project/target
 ## Plugin-specific files:
 
 # IntelliJ

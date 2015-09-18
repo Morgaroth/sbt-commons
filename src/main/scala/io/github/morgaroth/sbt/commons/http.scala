@@ -584,9 +584,9 @@ object HttpConstants {
   type HttpExec = (HttpRequest, HttpURLConnection) => Unit
 
   def defaultOptions: Seq[HttpOptions.HttpOption] = Seq(
-    HttpOptions.connTimeout(1000),
-    HttpOptions.readTimeout(5000),
-    HttpOptions.followRedirects(false)
+    HttpOptions.connTimeout(5000),
+    HttpOptions.readTimeout(10000),
+    HttpOptions.followRedirects(true)
   )
 
   val setFixedLengthStreamingMode: (HttpURLConnection, Long) => Unit = {

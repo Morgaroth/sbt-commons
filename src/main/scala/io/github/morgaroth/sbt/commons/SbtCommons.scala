@@ -1,13 +1,14 @@
 package io.github.morgaroth.sbt.commons
 
-import sbt.AutoPlugin
-
-import RepositoryTypes.{Releases, RepositoryType, Snapshots}
+import io.github.morgaroth.sbt.commons.RepositoryTypes.{Releases, RepositoryType, Snapshots}
+import sbt.Keys._
 import sbt._
 
-import scala.util.Success
+import scala.util.Try
 
-object Repositories {
+object Repositories extends Repositories
+
+trait Repositories {
 
   object Typesafe {
     val releases = repository(Releases)
@@ -29,7 +30,9 @@ object Repositories {
 
 }
 
-object Libraries {
+object Libraries extends Libraries
+
+trait Libraries {
 
   def library(organization: String, library: String, version: String) = organization %% library % version
 
@@ -122,7 +125,7 @@ object Libraries {
 
 object SbtCommons extends AutoPlugin {
 
-  def thisVersion = 0 -> 5
+  def thisVersion = 0 -> 6
 
   def needUpgrade(fromInternet: (Int, Int)) = {
     if (thisVersion == fromInternet) {
@@ -144,31 +147,44 @@ object SbtCommons extends AutoPlugin {
     val b = "https://oss.sonatype.org/content/repositories/releases/io/github/morgaroth/sbt-commons_2.10_0.13/"
     val r2 = """<td><a href=.*>(\d+\.\d+)/</a></td>""".r
     val r3 = """<td><a href=.*>(\d+\.\d+\.\d+)/</a></td>""".r
-    val data = Http(b).asString.body
-    val versions = r2.findAllMatchIn(data).toList.map(_.group(1)).map(_.split(".").toList.map(_.toInt))
-    val a1 = versions.groupBy(_.head).mapValues(_.map(_.tail))
-    val max1 = a1.keys.max
-    val a2 = a1(max1).groupBy(_.head).mapValues(_.map(_.tail))
-    val max2 = a2.keys.max
-    val allempty = a2.values.forall(_.isEmpty)
-    val allnonempty = a2.values.forall(_.nonEmpty)
-    if (allempty && !allnonempty) {
-      // wszystkie są formatu x.y
-      Some(max1 -> max2)
-    } else {
-      None
-    }
+    Try {
+      val data = Http(b).asString.body
+      val versions = r2.findAllMatchIn(data).toList.map(_.group(1)).map(_.split( """\.""").toList.map(_.toInt))
+      val majors = versions.groupBy(_.head).mapValues(_.map(_.tail))
+      val major = majors.keys.max
+      val minors = majors(major).groupBy(_.head).mapValues(_.map(_.tail))
+      val minor = minors.keys.max
+      val allempty = minors.values.forall(_.forall(_.isEmpty))
+      val allnonempty = minors.values.forall(_.forall(_.nonEmpty))
+      if (allempty && !allnonempty) {
+        // all are in format major.minor x.y
+        Some(major -> minor)
+      } else {
+        None
+      }
+    }.getOrElse(None)
   }
 
-  object autoImport {
-    val Libraries = io.github.morgaroth.sbt.commons.Libraries
+  object autoImport extends Libraries {
     val Repositories = io.github.morgaroth.sbt.commons.Repositories
-    // settings, keys, another which shoud be auto imported to sbt context
+  }
+
+  val onLoadVersionCheck: (State) => State = (state: State) => {
     getInternetVersion.foreach { internet =>
       if (needUpgrade(internet)) {
-        println(s"[INFO] `sbt commons` plugin from Morgaroth may be upgraded to version $internet (current is $thisVersion).")
+        println(s"[info] `sbt commons` plugin from Morgaroth may be upgraded to version ${internet._1}.${internet._2} (current is ${thisVersion._1}.${thisVersion._2}).")
       }
     }
+    state
+  }
+
+  override def projectSettings: Seq[Def.Setting[_]] = {
+    Seq(
+      onLoad in Global := {
+        val previous: (State) => State = (onLoad in Global).value
+        onLoadVersionCheck compose previous
+      }
+    )
   }
 }
 
