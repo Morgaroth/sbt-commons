@@ -85,6 +85,11 @@ trait Libraries {
 
   }
 
+  object Salat {
+    val ver: (String) => ModuleID = library("com.novus", "salat", _)
+    val `1.9.9` = ver("1.9.9")
+  }
+
   object Ficus {
     val ficusLibrary: (String, String) => ModuleID = library("net.ceedubs", _, _)
 
@@ -97,6 +102,15 @@ trait Libraries {
 
   }
 
+  object Morgaroth {
+    val morgarothLibrary: (String, String) => ModuleID = library("io.github.morgaroth", _, _)
+
+    object UtilsMongo {
+      val ver: (String) => ModuleID = morgarothLibrary("utils-mongo", _)
+      val `1.2.10` = ver("1.2.10")
+    }
+
+  }
 
   object Joda {
 
@@ -108,6 +122,17 @@ trait Libraries {
     object Convert {
       val ver: (String) => ModuleID = javaLibrary("org.joda", "joda-convert", _)
       val `1.7` = ver("1.7")
+    }
+
+  }
+
+  object Typesafe {
+    val typesaveLibrary: (String, String) => ModuleID = library("com.typesafe", _, _)
+
+    object Config {
+      val ver: (String) => ModuleID = typesaveLibrary("config", _)
+      val `1.3.0` = ver("1.3.0")
+      val `1.2.1` = ver("1.2.1")
     }
 
   }
