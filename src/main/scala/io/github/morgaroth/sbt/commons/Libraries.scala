@@ -85,6 +85,19 @@ trait Libraries {
 
   }
 
+  object Ficus {
+    val ficusLibrary: (String, String) => ModuleID = library("net.ceedubs", _, _)
+
+    object Config {
+      val ver: (String) => ModuleID = ficusLibrary("ficus", _)
+      val `1.0.1` = ver("1.0.1")
+      val `1.1.1` = ver("1.1.1")
+      val `1.1.2` = ver("1.1.2")
+    }
+
+  }
+
+
   object Joda {
 
     object Time {
