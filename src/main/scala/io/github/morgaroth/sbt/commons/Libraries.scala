@@ -106,7 +106,7 @@ trait Libraries {
     val morgarothLibrary: (String, String) => ModuleID = library("io.github.morgaroth", _, _)
 
     object UtilsMongo {
-      val ver: (String) => ModuleID = morgarothLibrary("utils-mongo", _)
+      val ver: (String) => ModuleID = morgarothLibrary("utils-mongodb", _)
       val `1.2.10` = ver("1.2.10")
     }
 
