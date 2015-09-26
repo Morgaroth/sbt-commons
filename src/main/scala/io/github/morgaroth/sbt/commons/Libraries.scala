@@ -22,6 +22,7 @@ trait Libraries {
       val `2.3.11` = ver("2.3.11")
       val `2.3.10` = ver("2.3.10")
       val `2.4.0-RC2` = ver("2.4.0-RC2")
+      val `2.4.0-RC3` = ver("2.4.0-RC3")
     }
 
     object Stream {
@@ -140,6 +141,25 @@ trait Libraries {
   object uPickle {
     val ver: (String) => ModuleID = library("com.lihaoyi", "upickle", _)
     val `0.3.6` = ver("0.3.6")
+  }
+
+  object Pathikrit {
+    val repository = Repositories.Pathikrit
+    val pathikritLib: (String, String) => ModuleID = library("com.github.pathikrit", _, _)
+
+    object BetterFiles {
+      val ver: (String) => ModuleID = pathikritLib("better-files", _)
+      val `2.6.1` = ver("2.6.1")
+      val `2.6.0` = ver("2.6.0")
+      val `2.5.2` = ver("2.5.2")
+      val `2.5.1` = ver("2.5.1")
+      val `2.5.0` = ver("2.5.0")
+      val `2.4.3` = ver("2.4.3")
+      val `2.4.1` = ver("2.4.1")
+      val `2.4.0` = ver("2.4.0")
+      val `2.3.0` = ver("2.3.0")
+    }
+
   }
 
   object Paradise {

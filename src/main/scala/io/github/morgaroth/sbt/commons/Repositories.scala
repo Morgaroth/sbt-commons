@@ -1,6 +1,6 @@
 package io.github.morgaroth.sbt.commons
 
-import io.github.morgaroth.sbt.commons.RepositoryTypes.{RepositoryType, Snapshots, Releases}
+import io.github.morgaroth.sbt.commons.RepositoryTypes.{Releases, RepositoryType, Snapshots}
 import sbt._
 
 
@@ -19,6 +19,8 @@ trait Repositories {
       s"Typesafe ${rtype.name} repository" at s"http://repo.typesafe.com/typesafe/${rtype.name}/"
     }
   }
+
+  val Pathikrit = Resolver.bintrayRepo("pathikrit", "maven")
 
   object Spray {
     val releases = "Spray.io repository" at "http://repo.spray.io"

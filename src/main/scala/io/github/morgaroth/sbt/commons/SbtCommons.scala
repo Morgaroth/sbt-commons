@@ -5,7 +5,7 @@ import sbt._
 
 object SbtCommons extends AutoPlugin with CheckNewerVersion {
 
-  def thisVersion = 0 -> 10
+  def thisVersion = 0 -> 11
 
   object autoImport extends Libraries {
     val Repositories = io.github.morgaroth.sbt.commons.Repositories
