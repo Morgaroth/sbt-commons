@@ -173,4 +173,16 @@ trait Libraries {
     val `2.2.4` = ver("2.2.4")
   }
 
+  object Slick {
+    val ver: (String) => ModuleID = library("com.typesafe.slick", "slick", _)
+    val `3.1.0` = ver("3.1.0")
+    val `3.1.0-RC2` = ver("3.1.0-RC2")
+  }
+
+  object PBKDF2 {
+    val ver = library("io.github.nremond", "pbkdf2-scala", _)
+    val `0.5` = ver("0.5")
+    val `0.4` = ver("0.4")
+  }
+
 }
