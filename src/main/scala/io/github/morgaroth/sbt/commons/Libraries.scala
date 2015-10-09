@@ -180,7 +180,7 @@ trait Libraries {
   }
 
   object PBKDF2 {
-    val ver = library("io.github.nremond", "pbkdf2-scala", _)
+    val ver: (String) => ModuleID = library("io.github.nremond", "pbkdf2-scala", _)
     val `0.5` = ver("0.5")
     val `0.4` = ver("0.4")
   }
