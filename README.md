@@ -21,10 +21,15 @@ Additionally, on start plugin checks if there is newer version published and inf
 * **Joda time** and **convert**
 * **Salat**, [project site](https://github.com/salat/salat)
 * **ScalaTest**
-* **Paradise** plugin too
+* **Paradise** plugin for macros
 * **PBKDF2-scala** library for calculating pbkdf2 hash, by nremond [project site](https://github.com/nremond/pbkdf2-scala)
+* **Jumblr** API library for [tumblr.com](https://github.com/tumblr/jumblr)
 
 ##Changelog
+
+#### 0.13
+
+* added Jumblr API library
 
 #### 0.12
 * Slick libraries 3.1.0-RC2 and 3.1.0
