@@ -25,7 +25,14 @@ Additionally, on start plugin checks if there is newer version published and inf
 * **PBKDF2-scala** library for calculating pbkdf2 hash, by nremond [project site](https://github.com/nremond/pbkdf2-scala)
 * **Jumblr** API library for [tumblr.com](https://github.com/tumblr/jumblr)
 
-##Changelog
+## Versions
+
+* **0.13** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.13-SNAPSHOT")```
+* **0.12** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.12")```
+* **0.11** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.11")```
+
+
+## Changelog
 
 #### 0.13
 
