@@ -37,6 +37,7 @@ Additionally, on start plugin checks if there is newer version published and inf
 #### 0.13
 
 * added Jumblr API library
+* added new version of **morgaroth's mongodb** library  
 
 #### 0.12
 * Slick libraries 3.1.0-RC2 and 3.1.0
