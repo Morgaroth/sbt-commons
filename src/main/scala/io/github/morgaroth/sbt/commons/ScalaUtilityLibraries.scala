@@ -29,6 +29,7 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
 
     object UtilsMongo {
       val ver: (String) => ModuleID = morgarothLibrary("utils-mongodb", _)
+      val `2.0.0` = ver("2.0.0")
       val `1.2.10` = ver("1.2.10")
     }
 
