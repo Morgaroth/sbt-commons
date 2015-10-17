@@ -27,7 +27,7 @@ Additionally, on start plugin checks if there is newer version published and inf
 
 ## Versions
 
-* **0.13** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.13-SNAPSHOT")```
+* **0.13** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.13")```
 * **0.12** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.12")```
 * **0.11** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.11")```
 
@@ -35,7 +35,6 @@ Additionally, on start plugin checks if there is newer version published and inf
 ## Changelog
 
 #### 0.13
-
 * added Jumblr API library
 * added new version of **morgaroth's mongodb** library  
 

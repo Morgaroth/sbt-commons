@@ -31,6 +31,11 @@ trait Plugins {
 
   }
 
+  object ScalaJS {
+    val ver: (String) => ModuleID = plugin("org.scala-js", "sbt-scalajs", _)
+    val `0.6.5` = ver("0.6.5")
+  }
+
 }
 
 object Plugins extends Plugins
