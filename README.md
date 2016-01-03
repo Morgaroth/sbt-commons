@@ -12,7 +12,7 @@ Additionally, on start plugin checks if there is newer version published and inf
 ## Contents
 
 * **spray.io** libraries (can, client, http, httpx, caching, routing, testkit)
-* **akka** libraries (actor, stream, http)
+* **akka** libraries (actor, stream, http, remote, cluster, testkit)
 * **Typesafe config**
 * **Ficus config**
 * **Slick**
@@ -27,12 +27,20 @@ Additionally, on start plugin checks if there is newer version published and inf
 
 ## Versions
 
+* **0.14** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.14")```
 * **0.13** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.13")```
 * **0.12** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.12")```
 * **0.11** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.11")```
 
 
 ## Changelog
+
+#### 0.14
+
+* added sbt-buildinfo plugin so some job is automated
+* added missing versions of akka libraries
+* added missing akka libraries (remote, cluster, testkit)
+* added missing spray libraries (http, httpx)
 
 #### 0.13
 * added Jumblr API library
