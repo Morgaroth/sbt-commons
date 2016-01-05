@@ -27,13 +27,18 @@ Additionally, on start plugin checks if there is newer version published and inf
 
 ## Versions
 
-* **0.14** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.14")```
+* **0.15** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.15")```
+* **0.14** *BROKEN* ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.14")```
 * **0.13** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.13")```
 * **0.12** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.12")```
 * **0.11** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.11")```
 
 
 ## Changelog
+
+#### 0.15
+
+* fixed broken build
 
 #### 0.14
 

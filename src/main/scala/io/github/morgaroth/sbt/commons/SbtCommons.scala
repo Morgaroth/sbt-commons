@@ -6,7 +6,10 @@ import sbt._
 object SbtCommons extends AutoPlugin with CheckNewerVersion {
 
   def thisVersion: (Int, Int) = {
-    val (maj :: min :: Nil) = BuildInfo.version.split(".").toList
+    val version1 = BuildInfo.version
+    val toList = version1.split("""\.""").toList
+    println(s"$version1, $toList")
+    val (maj :: min :: Nil) = toList
     maj.toInt -> min.toInt
   }
 
