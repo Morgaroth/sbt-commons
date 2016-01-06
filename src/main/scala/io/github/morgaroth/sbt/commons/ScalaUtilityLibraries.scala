@@ -3,8 +3,8 @@ package io.github.morgaroth.sbt.commons
 import sbt._
 
 /**
- * Created by mateusz on 15.10.15.
- */
+  * Created by mateusz on 15.10.15.
+  */
 trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
 
   object Salat {
@@ -14,12 +14,15 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
 
   object Ficus {
     val ficusLibrary: (String, String) => ModuleID = library("net.ceedubs", _, _)
+    val ficusNewLibrary: (String, String) => ModuleID = library("com.iheart", _, _)
 
     object Config {
       val ver: (String) => ModuleID = ficusLibrary("ficus", _)
-      val `1.0.1` = ver("1.0.1")
-      val `1.1.1` = ver("1.1.1")
+      val `1.1.3` = ver("1.1.3")
       val `1.1.2` = ver("1.1.2")
+      val `1.1.1` = ver("1.1.1")
+      val `1.0.1` = ver("1.0.1")
+      val last = `1.1.3`
     }
 
   }
@@ -31,6 +34,7 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
       val ver: (String) => ModuleID = morgarothLibrary("utils-mongodb", _)
       val `2.0.0` = ver("2.0.0")
       val `1.2.10` = ver("1.2.10")
+      val last = `2.0.0`
     }
 
   }
@@ -38,6 +42,7 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
   object uPickle {
     val ver: (String) => ModuleID = library("com.lihaoyi", "upickle", _)
     val `0.3.6` = ver("0.3.6")
+    val last = `0.3.6`
   }
 
   object Pathikrit {
@@ -46,6 +51,19 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
 
     object BetterFiles {
       val ver: (String) => ModuleID = pathikritLib("better-files", _)
+      val `2.14.0` = ver("2.14.0")
+      val `2.13.0` = ver("2.13.0")
+      val `2.12.2` = ver("2.12.2")
+      val `2.12.1` = ver("2.12.1")
+      val `2.12.0` = ver("2.12.0")
+      val `2.11.0` = ver("2.11.0")
+      val `2.10.0` = ver("2.10.0")
+      val `2.9.2` = ver("2.9.2")
+      val `2.9.0` = ver("2.9.0")
+      val `2.8.1` = ver("2.8.1")
+      val `2.8.0` = ver("2.8.0")
+      val `2.7.1` = ver("2.7.1")
+      val `2.7.0` = ver("2.7.0")
       val `2.6.1` = ver("2.6.1")
       val `2.6.0` = ver("2.6.0")
       val `2.5.2` = ver("2.5.2")
@@ -55,6 +73,7 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
       val `2.4.1` = ver("2.4.1")
       val `2.4.0` = ver("2.4.0")
       val `2.3.0` = ver("2.3.0")
+      val last = `2.14.0`
     }
 
   }
@@ -67,7 +86,9 @@ trait ScalaUtilityLibraries extends ScalaLibraryHelpers {
 
   object ScalaTest {
     val ver: (String) => ModuleID = library("org.scalatest", "scalatest", _)
+    val `2.2.6` = ver("2.2.6")
     val `2.2.4` = ver("2.2.4")
+    val last = `2.2.6`
   }
 
   object Slick {

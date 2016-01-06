@@ -3,20 +3,26 @@ package io.github.morgaroth.sbt.commons
 import sbt.ModuleID
 
 /**
- * Created by mateusz on 15.10.15.
- */
+  * Created by mateusz on 15.10.15.
+  */
 trait JavaLibraries extends JavaLibraryHelpers {
 
   object Joda {
 
     object Time {
       val ver: (String) => ModuleID = javaLibrary("joda-time", "joda-time", _)
+      val `2.9.1` = ver("2.9.1")
+      val `2.9` = ver("2.9")
       val `2.8.2` = ver("2.8.2")
+      val last = `2.9.1`
     }
 
     object Convert {
       val ver: (String) => ModuleID = javaLibrary("org.joda", "joda-convert", _)
+      val `1.8.1` = ver("1.8.1")
+      val `1.8` = ver("1.8")
       val `1.7` = ver("1.7")
+      val last = `1.8.1`
     }
 
   }

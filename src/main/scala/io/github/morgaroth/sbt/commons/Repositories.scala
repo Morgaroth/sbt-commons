@@ -5,8 +5,8 @@ import sbt._
 
 
 /**
- * Created by mateusz on 19.09.15.
- */
+  * Created by mateusz on 19.09.15.
+  */
 object Repositories extends Repositories
 
 trait Repositories {
@@ -29,6 +29,11 @@ trait Repositories {
 
   object ExNexu {
     val releases = "Bleibinha releases" at "http://bleibinha.us/archiva/repository/releases"
+  }
+
+  object NetExacode {
+    val releases = "exacode-releases" at "https://github.com/exacode/mvn-repo/raw/master/releases"
+    val snapshots = "exacode-snapshots" at "https://github.com/exacode/mvn-repo/raw/master/snapshots"
   }
 
 }

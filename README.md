@@ -24,6 +24,8 @@ Additionally, on start plugin checks if there is newer version published and inf
 * **Paradise** plugin for macros
 * **PBKDF2-scala** library for calculating pbkdf2 hash, by nremond [project site](https://github.com/nremond/pbkdf2-scala)
 * **Jumblr** API library for [tumblr.com](https://github.com/tumblr/jumblr)
+* **Joda Time** rich time library [JodaTime](http://www.joda.org/joda-time/)
+* **Joda Convert** helper library for Joda time [info site](http://www.joda.org/joda-convert/)
 
 ## Versions
 
@@ -35,6 +37,12 @@ Additionally, on start plugin checks if there is newer version published and inf
 
 
 ## Changelog
+
+#### 0.16
+
+* added new versions of joda-time, joda-convert, better-files, scala-test
+* added logback library, logback extensions library (from user repository)
+* added *last* field to libraries
 
 #### 0.15
 
