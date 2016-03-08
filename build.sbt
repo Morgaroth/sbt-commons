@@ -4,7 +4,7 @@ name := """Sbt Commons"""
 
 organization := """io.github.morgaroth"""
 
-version := "0.16"
+version := "0.17"
 
 pomExtra := githubPom(name.value, "Mateusz Jaje", "Morgaroth")
 
