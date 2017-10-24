@@ -1,7 +1,7 @@
 package io.github.morgaroth.sbt.commons
 
 import sbt.Keys._
-import sbt._
+import sbt.{AutoPlugin, Def, Global, State}
 
 object SbtCommons extends AutoPlugin with CheckNewerVersion {
 
@@ -13,7 +13,7 @@ object SbtCommons extends AutoPlugin with CheckNewerVersion {
   }
 
   object autoImport extends Libraries {
-    val Repositories = io.github.morgaroth.sbt.commons.Repositories
+    val Repositories: Repositories = io.github.morgaroth.sbt.commons.Repositories
   }
 
   val onLoadVersionCheck: (State) => State = (state: State) => {

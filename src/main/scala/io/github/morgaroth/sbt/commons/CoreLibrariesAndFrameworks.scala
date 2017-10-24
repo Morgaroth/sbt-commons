@@ -20,9 +20,22 @@ trait CoreLibrariesAndFrameworks extends ScalaLibraryHelpers {
       val `2.3.10` = ver("2.3.10")
       val `2.4.0-RC2` = ver("2.4.0-RC2")
       val `2.4.0-RC3` = ver("2.4.0-RC3")
-      val `2.4.0` = ver("2.4.0")
+      val `2.4.20` = ver("2.4.20")
+      val `2.4.5` = ver("2.4.5")
+      val `2.4.4` = ver("2.4.4")
+      val `2.4.3` = ver("2.4.3")
+      val `2.4.2` = ver("2.4.2")
       val `2.4.1` = ver("2.4.1")
+      val `2.4.0` = ver("2.4.0")
+      val `2.5.0` = ver("2.5.0")
+      val `2.5.1` = ver("2.5.1")
+      val `2.5.2` = ver("2.5.2")
+      val `2.5.3` = ver("2.5.3")
+      val `2.5.4` = ver("2.5.4")
+      val `2.5.5` = ver("2.5.5")
+      val `2.5.6` = ver("2.5.6")
 
+      val last: ModuleID = `2.5.6`
     }
 
     object Actor extends AkkaVersions {
@@ -56,12 +69,12 @@ trait CoreLibrariesAndFrameworks extends ScalaLibraryHelpers {
     }
 
     object Http {
-      val ver: (String) => ModuleID = akkaLibrary("akka-http-experimental", _)
-      val `2.0.1` = ver("2.0.1")
-      val `2.0` = ver("2.0")
-      val `2.0-M2` = ver("2.0-M2")
-      val `2.0-M1` = ver("2.0-M1")
-      val `1.0` = ver("1.0")
+      val verExperimental: (String) => ModuleID = akkaLibrary("akka-http-experimental", _)
+      val `2.0.1` = verExperimental("2.0.1")
+      val `2.0` = verExperimental("2.0")
+      val `2.0-M2` = verExperimental("2.0-M2")
+      val `2.0-M1` = verExperimental("2.0-M1")
+      val `1.0` = verExperimental("1.0")
     }
 
   }

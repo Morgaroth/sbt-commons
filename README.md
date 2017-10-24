@@ -29,6 +29,8 @@ Additionally, on start plugin checks if there is newer version published and inf
 
 ## Versions
 
+* **0.17** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.17")```
+* **0.16** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.16")```
 * **0.15** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.15")```
 * **0.14** *BROKEN* ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.14")```
 * **0.13** ```addSbtPlugin("io.github.morgaroth" %% "sbt-commons" % "0.13")```
@@ -37,6 +39,12 @@ Additionally, on start plugin checks if there is newer version published and inf
 
 
 ## Changelog
+
+#### 0.17
+
+* added new versions of logback, akka,
+* added *last* field to some libraries
+* added crossbuilding for sbt 1.0.1 and 0.13.18
 
 #### 0.16
 
