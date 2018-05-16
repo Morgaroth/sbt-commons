@@ -4,9 +4,13 @@ name := """Sbt Commons"""
 
 organization := """io.github.morgaroth"""
 
-version := "0.17"
+version := "0.18"
 
-crossSbtVersions := Vector("0.13.15", "1.0.0-RC2")
+crossSbtVersions := Vector("0.13.15", "1.0.4", "1.1.5")
+
+scalaVersion := {
+  if (sbtVersion.value.startsWith("1.")) "2.12.6" else scalaVersion.value
+}
 
 enablePlugins(BuildInfoPlugin)
 
