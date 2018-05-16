@@ -6,7 +6,7 @@ organization := """io.github.morgaroth"""
 
 version := "0.19"
 
-crossSbtVersions := Vector("0.13.16", "1.0.4", "1.1.5")
+crossSbtVersions := Vector("0.13.16", "1.1.5")
 
 enablePlugins(BuildInfoPlugin)
 
