@@ -8,10 +8,6 @@ version := "0.19"
 
 crossSbtVersions := Vector("0.13.16", "1.0.4", "1.1.5")
 
-scalaVersion := {
-  if (sbtVersion.value.startsWith("1.")) "2.12.6" else scalaVersion.value
-}
-
 enablePlugins(BuildInfoPlugin)
 
 buildInfoKeys := Seq[BuildInfoKey](version)
